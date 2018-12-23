@@ -1,4 +1,4 @@
-##Project explaination
+## Project explaination
 This is a CLI for accessing a small ammount of the data avalible from Alpha Vantage
 
 ## todo
