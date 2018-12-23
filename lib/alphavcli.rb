@@ -1,5 +1,6 @@
 require 'open-uri'
 require 'json'
+require 'pry'
 
 require_relative "./alphavcli/version"
 require_relative "./alphavcli/search"
