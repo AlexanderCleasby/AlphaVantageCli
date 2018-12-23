@@ -96,7 +96,7 @@ Please enter the number cooresponding to the action you would like to take.
         
         data[0,data.length-2].each_with_index{|day,i|
         
-        puts day[:day]+"  "+day[:price].to_s+ "  "+ (((day[:price]-data[i+1][:price])/data[i+1][:price])*100).to_s[0..6]+'%'
+        puts day[:day]+"  "+ "%.2f" % day[:price] + "  "+ "%.4f" % (((day[:price]-data[i+1][:price])/data[i+1][:price])*100) +'%'
         
         }
     end
