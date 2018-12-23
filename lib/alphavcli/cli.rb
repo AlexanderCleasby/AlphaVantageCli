@@ -72,11 +72,13 @@ Please enter the number cooresponding to the action you would like to take.
             when "Daily"
                 
                 sec.getTimeSeries
-                diplay(sec.daily)
+                diplay(sec.daily[0..7])
                 #display(sec.getTimeSeries)
             when "Weekly"
                 sec.getTimeSeries
-                
+                diplay(sec.daily,7)
+            when "exit"
+                break
             else
                 puts "#{select} is not a valid action!"
             end
@@ -92,10 +94,10 @@ Please enter the number cooresponding to the action you would like to take.
 
     def diplay(data,interval=1)
         
-        data[1,data.length-2].each_with_index{|day,i|
+        data[0,data.length-2].each_with_index{|day,i|
         
-        puts day[:day]+"  "+day[:price].to_s+ "  "+ (((day[:price]-data[i][:price])/data[i][:price])*100).to_s[0..6]+'%'
-        i+=(interval-1)
+        puts day[:day]+"  "+day[:price].to_s+ "  "+ (((day[:price]-data[i+1][:price])/data[i+1][:price])*100).to_s[0..6]+'%'
+        
         }
     end
 
