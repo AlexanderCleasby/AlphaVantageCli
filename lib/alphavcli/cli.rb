@@ -76,7 +76,7 @@ Please enter the number cooresponding to the action you would like to take.
                 #display(sec.getTimeSeries)
             when "Weekly"
                 sec.getTimeSeries
-                diplay(sec.daily,7)
+                diplay(sec.daily[0..7*8],7)
             when "exit"
                 break
             else
@@ -95,9 +95,9 @@ Please enter the number cooresponding to the action you would like to take.
     def diplay(data,interval=1)
         
         data[0,data.length-2].each_with_index{|day,i|
-        
-        puts day[:day]+"  "+ "%.2f" % day[:price] + "  "+ "%.4f" % (((day[:price]-data[i+1][:price])/data[i+1][:price])*100) +'%'
-        
+        if i % interval == 0
+            puts day[:day]+"  "+ "%.2f" % day[:price] + "  "+ "%.4f" % (((day[:price]-data[i+interval][:price])/data[i+interval][:price])*100) +'%'
+        end
         }
     end
 
