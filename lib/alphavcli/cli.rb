@@ -66,18 +66,19 @@ Please enter the number cooresponding to the action you would like to take.
         loop {
             puts "What would you like to know about #{sec.name}?"
             puts '"Daily" - Display return from the past day
-"Weekly" - Display returns from the past week'
+"Weekly" - Display returns from the past week
+"Back" - Go Back to main menu'
             select=gets.chomp
             case select
             when "Daily"
                 
                 sec.getTimeSeries
-                diplay(sec.daily[0..7])
+                diplay(sec.daily[0..10])
                 #display(sec.getTimeSeries)
             when "Weekly"
                 sec.getTimeSeries
-                diplay(sec.daily[0..7*8],7)
-            when "exit"
+                diplay(sec.daily[0..7*10],7)
+            when "back"
                 break
             else
                 puts "#{select} is not a valid action!"
